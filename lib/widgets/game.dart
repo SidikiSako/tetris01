@@ -3,6 +3,7 @@ import 'package:flutter_tetris/main.dart';
 import 'package:flutter_tetris/widgets/action_button.dart';
 
 enum LastButtonPressed { LEFT, RIGHT, ROTATE, NONE }
+enum MoveDirection { LEFT, RIGHT, DOWN }
 
 class Game extends StatefulWidget {
   @override
