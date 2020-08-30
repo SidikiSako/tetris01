@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_tetris/bloc/point.dart';
 import 'package:flutter_tetris/widgets/game.dart';
+
+import 'alive_points.dart';
 
 class Block {
   List<Point> points = List<Point>(4); //chaque element tetric à 4 points
@@ -34,7 +38,7 @@ class Block {
     points.forEach((point) {
       int x = point.x;
       point.x = rotationCenter.x - point.y + rotationCenter.y;
-      point.y = rotationCenter.y + point.x - rotationCenter.x;
+      point.y = rotationCenter.y + x - rotationCenter.x;
     });
   }
 
@@ -42,7 +46,24 @@ class Block {
     points.forEach((point) {
       int x = point.x;
       point.x = rotationCenter.x + point.y - rotationCenter.y;
-      point.y = rotationCenter.y - point.x + rotationCenter.x;
+      point.y = rotationCenter.y - x + rotationCenter.x;
     });
+  }
+
+  //pour pouvoir arreter la descente du point. On regarde si on a toucher le fond
+  bool isAtBottom() {
+    //on verifie si un des points de tetris block est tout en bas (y == BOARD_HEIGHT)
+    bool isAtBottom = false;
+    points.forEach((point) {
+      //print("POINT.Y = ${point.y}");
+      if (point.y >= BOARD_HEIGHT - 1) {
+        print("CE POINT A TOUCHÉ LE BORD DU BAS");
+        // -1 parce que board_height = 20 mais
+        //nos indices vont de 0 à 19. D'où 20 - 1 = 19
+
+        isAtBottom = true;
+      }
+    });
+    return isAtBottom;
   }
 }

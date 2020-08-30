@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tetris/widgets/game.dart';
 import 'package:flutter_tetris/widgets/menu.dart';
 
-const double WIDTH = 300;
-const double HEIGHT = 400;
 void main() {
   runApp(MyApp());
 }

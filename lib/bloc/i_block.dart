@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tetris/bloc/block.dart';
 import 'package:flutter_tetris/bloc/point.dart';
 
+//FORMAT DU BLOCK
+// - - - -
+
 class IBlock extends Block {
   //IBlock represente la barre dans tetris. ici on la sort horizontalement
   IBlock(int width) {

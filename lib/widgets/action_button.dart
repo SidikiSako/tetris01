@@ -10,7 +10,7 @@ class ActionButon extends StatelessWidget {
   Widget build(BuildContext context) {
     return ButtonTheme(
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(5.0),
         child: RaisedButton(
           onPressed: () {
             onClickedFunction(nextAction);
